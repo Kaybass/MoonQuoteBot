@@ -30,7 +30,7 @@ var meme = db.prepare("INSERT INTO quotes VALUES (?,?)");
 var quotes = new Array();
 
 db.each("SELECT quote, author FROM quotes", function(err, row){
-    console.log('"' + row.quote + '" ' + row.author);
+    //console.log('"' + row.quote + '" ' + row.author);
     quotes.push(new Array(row.quote, row.author))
 });
 
