@@ -1,0 +1,19 @@
+<link rel="stylesheet" href="https://bootswatch.com/cyborg/bootstrap.min.css">
+
+
+<html lang="en">
+<body class="container">
+
+
+    <main>
+        <% quotes.forEach(function(each){%>
+            <div class="jumbotron">
+               <h1>"<%= each[0]%>"</h1>
+               <h3>-<%= each[1]%></h3>
+            </div>
+       <%});%>
+    </main>
+
+    
+</body>
+</html>
