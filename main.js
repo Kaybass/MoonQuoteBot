@@ -27,12 +27,13 @@ load quotes here
 var sqlite = require('sqlite3').verbose();
 var db = new sqlite.Database('quotes.db');
 
-var meme = db.prepare("INSERT INTO quotes VALUES (?,?)");
+//quote insert statement
+var insertQuote = db.prepare("INSERT INTO quotes VALUES (?,?)");
 
 var quotes = new Array();
 
+//load quotes
 db.each("SELECT quote, author FROM quotes", function(err, row){
-    //console.log('"' + row.quote + '" ' + row.author);
     quotes.push(new Array(row.quote, row.author))
 });
 
@@ -45,7 +46,6 @@ console.log(Responses.LOGGED_INTO_DISCORD);
 //event handler for message in a chat the bot is connected to or a DM
 client.on('message', function(message) {
     var messageSplit = message.content.match(/("[^"]*")|[^ ]+/g);
-    //console.log(messageSplit);
 
     //First we see if they gave the quote command with an option
     if(messageSplit.length > 1 && messageSplit[0] == "/quote"){
@@ -56,7 +56,7 @@ client.on('message', function(message) {
             if(messageSplit.length == 4 && messageSplit[2] != "" && messageSplit[3] != ""){
 
                 //Store to disk and memory
-                meme.run(messageSplit[2].replace(/\"/g,""),messageSplit[3].replace(/\"/g,""));
+                insertQuote.run(messageSplit[2].replace(/\"/g,""),messageSplit[3].replace(/\"/g,""));
                 quotes.push(new Array(messageSplit[2].replace(/\"/g,""),messageSplit[3].replace(/\"/g,"")))
 
                 //Say that all is well
