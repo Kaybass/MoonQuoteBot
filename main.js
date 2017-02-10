@@ -19,6 +19,8 @@ var client = new Discord.Client();
 var express = require('express');
 var app = express();
 
+app.set('view engine','ejs');
+
 /*
 Maybe load quotes here
 */
@@ -69,7 +71,7 @@ client.on('message', function(message) {
         } else if (messageSplit[1] == "-h" || messageSplit[1] == "--help"){
             message.reply(Responses.HELP_MESSAGE);
         }
-    } else if (messageSplit.length > 0 && messageSplit[0] == "@everyone") {
+    } else if (messageSplit.length > 0 && messageSplit.includes("@everyone")) {
         message.reply(Responses.SOMEONE_SAID_ATEVERYONE);
     }
 });
@@ -79,16 +81,20 @@ client.on('message', function(message) {
 Web Client
 */
 app.get('/', function (req, res) {
+    res.render('index');
+});
+
+app.get('/plainlist', function (req, res) {
     var response = "";
 
     quotes.forEach(function(quote){
-        response += '"' + quote[0] + '" -' + quote[1] + '\n';
+        response += '<h1>"' + quote[0] + '"</h1> <h2>-' + quote[1] + '</h2>\n';
     });
     res.send(response);
 });
 
 app.listen(Settings.port, function () {
-    console.log('Example app listening on port',Settings.port,'!');
+    console.log('MoonBot web frontend listening on port',Settings.port,'!');
 });
 
 
