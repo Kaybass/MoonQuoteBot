@@ -7,5 +7,12 @@
     "test": "node main.js"
   },
   "author": "Alexander Bean Apmann",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url":"https://github.com/Kaybass/MoonQuoteBot"
+  },
+  "dependencies": {
+    "discord.js": "11.0.0"
+  }
 }
