@@ -1,0 +1,11 @@
+{
+  "name": "moon-voice-bot",
+  "version": "1.0.0",
+  "description": "Bot based on discord js with express front end",
+  "main": "main.js",
+  "scripts": {
+    "test": "node main.js"
+  },
+  "author": "Alexander Bean Apmann",
+  "license": "MIT"
+}
