@@ -1,7 +1,8 @@
 {
     "ADD_QUOTES_PROPER_USAGE":"proper usage: /quote -a \"quote\" \"name\"",
-    "HELP_MESSAGE":"",
+    "HELP_MESSAGE":"\nHi my name is MoonBot, I write down quotes\nTo give me a quote use the following syntax\n/quote -a \"quote\" \"author\"",
     "SHELL_HELP":"",
     "SOMEONE_SAID_ATEVERYONE": "Please don't use at everyone, you are a bad person",
-    "LOGGED_INTO_DISCORD": "Successfully logged into discord!"
+    "LOGGED_INTO_DISCORD": "Successfully logged into discord!",
+    "QUOTE_ADDED": "Quote successfully added!"
 }

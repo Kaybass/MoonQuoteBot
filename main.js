@@ -42,15 +42,17 @@ console.log(Responses.LOGGED_INTO_DISCORD);
 
 client.on('message', function(message) {
     var messageSplit = message.content.match(/("[^"]*")|[^ ]+/g);
-    console.log(messageSplit);
+    //console.log(messageSplit);
 
     if(messageSplit.length > 1 && messageSplit[0] == "/quote"){
 
         if(messageSplit[1] == "-a" || messageSplit[1] == "--add"){
             if(messageSplit.length == 4 && messageSplit[2] != "" && messageSplit[3] != ""){
                 meme.run(messageSplit[2].replace(/\"/g,""),messageSplit[3].replace(/\"/g,""));
-                console.log(messageSplit[2].replace(/\"/g,""),messageSplit[3].replace(/\"/g,""));
+                //console.log(messageSplit[2].replace(/\"/g,""),messageSplit[3].replace(/\"/g,""));
                 quotes.push(new Array(messageSplit[2].replace(/\"/g,""),messageSplit[3].replace(/\"/g,"")))
+
+                message.reply(Responses.QUOTE_ADDED);
 
             } else {
                 message.reply(Responses.ADD_QUOTES_PROPER_USAGE)
