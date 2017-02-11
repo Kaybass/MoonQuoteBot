@@ -13,9 +13,9 @@
     "url":"https://github.com/Kaybass/MoonQuoteBot"
   },
   "dependencies": {
-    "discord.js": "11.0.0",
+    "discord.js": "^11.0.0",
     "ejs": "^1.0.0",
     "express": "^4.6.1",
-    "sqlite3": "@3.1.8"
+    "sqlite3": "^3.1.8"
   }
 }
